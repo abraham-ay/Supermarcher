@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="img/logo F.png" type="image/*"> 
+    <link rel="shortcut icon" href="img/logo F.png" type="image/*">
     <title>supermarché</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -27,23 +27,21 @@
 
         :root {
 
-            --primary-color: #faea11;
-
             --secondary-color: #d8b596;
 
             --accent-color: #0294e9;
 
-            --background-color: #f3eadf;
+            --background-color: #068cad;
 
             --form-bg-color: #ffffff;
 
             --text-color: #000000;
 
-            --input-border: #ddd;
+            --input-border: #dddddd;
 
             --button-hover: #0294e9;
 
-            --shadow-color: rgba(231, 135, 10, 0.733);
+            --shadow-color: rgba(255, 255, 255, 0.733);
 
         }
 
@@ -124,7 +122,7 @@
             font-size: 25px;
 
             color: var(--shadow-color);
-            
+
             margin-top: 19px;
             margin-bottom: 20px;
 
@@ -242,9 +240,9 @@
 
         .submit-button {
 
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
 
-            color: white;
+            color: rgb(0, 0, 0);
 
             border: none;
 
@@ -310,262 +308,6 @@
 
         }
 
-        /* Caractère de l'ours */
-
-        .bear-container {
-
-            position: relative;
-
-            width: 220px;
-
-            height: 220px;
-
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-        }
-
-        /* Visage d'ours */
-
-        .bear-face {
-
-            position: absolute;
-
-            background-color: var(--background-color);
-
-            height: 140px;
-
-            width: 160px;
-
-            border-radius: 70% 70% 60% 60%;
-
-            top: 20px;
-
-            left: 30px;
-
-            transition: all 0.4s ease;
-
-        }
-
-        /* Oreilles */
-
-        .ear-l,
-        .ear-r {
-
-            background-color: var(--secondary-color);
-
-            height: 50px;
-
-            width: 50px;
-
-            border-radius: 50%;
-
-            position: absolute;
-
-            top: -5px;
-
-            transition: all 0.4s ease;
-
-        }
-
-        .ear-l {
-
-            left: 20px;
-
-        }
-
-        .ear-r {
-
-            right: 20px;
-
-        }
-
-        .ear-l:before,
-        .ear-r:before {
-
-            position: absolute;
-            content: counter(name);
-
-            height: 30px;
-
-            width: 30px;
-
-            background-color: var(--secondary-color);
-
-            border-radius: 50%;
-
-            top: 10px;
-
-        }
-
-        .ear-l:before {
-
-            left: 10px;
-
-        }
-
-        .ear-r:before {
-
-            right: 10px;
-
-        }
-
-        /* Yeux */
-
-        .eye-l,
-        .eye-r {
-
-            background-color: white;
-
-            height: 26px;
-
-            width: 24px;
-
-            border-radius: 50%;
-
-            position: absolute;
-
-            top: 40px;
-
-            transition: all 0.4s ease;
-
-        }
-
-        .eye-l {
-
-            left: 40px;
-
-        }
-
-        .eye-r {
-
-            right: 40px;
-
-        }
-
-        .eyeball-l,
-        .eyeball-r {
-
-            background-color: rgb(70, 11, 230);
-
-            height: 12px;
-
-            width: 12px;
-
-            border-radius: 50%;
-
-            position: absolute;
-
-            top: 6px;
-
-            transition: all 0.2s ease;
-
-        }
-
-        .eyeball-l {
-
-            left: 6px;
-
-        }
-
-        .eyeball-r {
-
-            right: 6px;
-
-        }
-
-        /* Rougir */
-
-        .blush-l,
-        .blush-r {
-
-            background-color: rgba(207, 68, 33, 0.7);
-
-            height: 15px;
-
-            width: 15px;
-
-            border-radius: 50%;
-
-            position: absolute;
-
-            top: 65px;
-
-        }
-
-        .blush-l {
-
-            left: 25px;
-
-        }
-
-        .blush-r {
-
-            right: 25px;
-
-        }
-
-        /* Museau */
-
-        .snout {
-
-            position: absolute;
-
-            background-color: var(--secondary-color);
-
-            height: 55px;
-
-            width: 70px;
-
-            border-radius: 50%;
-
-            top: 60px;
-
-            left: 45px;
-
-        }
-
-        /* Nez */
-
-        .nose {
-
-            background-color: black;
-
-            height: 14px;
-
-            width: 16px;
-
-            border-radius: 50%;
-
-            position: relative;
-
-            top: 15px;
-
-            left: 27px;
-
-        }
-
-        /*Bouche*/
-
-        .mouth {
-
-            height: 10px;
-
-            width: 16px;
-
-            border-bottom: 3px solid black;
-
-            border-radius: 50%;
-
-            position: relative;
-
-            top: 20px;
-
-            left: 27px;
-
-            transition: all 0.4s ease;
-
-        }
-
         /* Message de bienvenue */
 
         .welcome-text {
@@ -625,7 +367,7 @@
 
                 flex-direction: column;
 
-                height: auto;
+                height: 120vh;
 
                 min-height: 90vh;
 
@@ -651,7 +393,7 @@
 
             .form-side {
 
-                padding: 30px 20px;
+                padding: 1px 3px;
 
             }
 
@@ -811,8 +553,10 @@
                 </div>
 
             </div>
-
-            <div class="welcome-text" id="welcome-message">Connectez-vous à votre compte</div>
+            <div class="mb-5 pt-5"> 
+                <img src="img/ic-qualite.png" class="img-fluid rounded-5" alt="">
+            </div>
+            <div class="welcome-text" id="welcome-message">Connectez-vous</div>
 
         </div>
 
@@ -866,7 +610,8 @@
 
                     </form>
 
-                    <div class="toggle-link">Vous n'avez pas de compte ?<a id="show-register">Inscrivez-vous maintenant</a>
+                    <div class="toggle-link">Vous n'avez pas de compte ?<a id="show-register">Inscrivez-vous
+                            maintenant</a>
 
                     </div>
 
