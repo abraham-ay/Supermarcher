@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/logo F.png" type="image/*"> 
+    <title>supermarché</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <style>
+        * {
+
+            padding: 0;
+
+            margin: 0;
+
+            box-sizing: border-box;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        :root {
+
+            --primary-color: #faea11;
+
+            --secondary-color: #d8b596;
+
+            --accent-color: #0294e9;
+
+            --background-color: #f3eadf;
+
+            --form-bg-color: #ffffff;
+
+            --text-color: #000000;
+
+            --input-border: #ddd;
+
+            --button-hover: #0294e9;
+
+            --shadow-color: rgba(231, 135, 10, 0.733);
+
+        }
+
+        body {
+
+            background: linear-gradient(135deg, var(--background-color) 0%, #e6d0bc 100%);
+
+            height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+        }
+
+        .login-container {
+
+            display: flex;
+
+            width: 850px;
+
+            max-width: 95%;
+
+            height: 530px;
+
+            background-color: var(--form-bg-color);
+
+            border-radius: 16px;
+
+            box-shadow: 0 10px 30px var(--shadow-color);
+
+            overflow: hidden;
+
+            position: relative;
+
+        }
+
+        .bear-side {
+
+            flex: 1;
+
+            background-color: var(--primary-color);
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        }
+
+        .form-side {
+
+            flex: 1.2;
+
+            padding: 40px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+        }
+
+        .login-title {
+
+            font-size: 25px;
+
+            color: var(--shadow-color);
+            
+            margin-top: 19px;
+            margin-bottom: 20px;
+
+            font-weight: 700;
+
+            transition: all 0.3s ease;
+
+        }
+
+        .input-group {
+
+            margin-bottom: 20px;
+
+            position: relative;
+
+        }
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--text-color);
+
+            font-weight: 500;
+
+            font-size: 15px;
+
+        }
+
+        .input-group input {
+
+            width: 100%;
+
+            padding: 12px 15px;
+
+            border: 1px solid var(--input-border);
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            transition: all 0.3s ease;
+
+        }
+
+        .input-group input:focus {
+
+            border-color: var(--primary-color);
+
+            outline: none;
+
+            box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.1);
+
+        }
+
+        .input-group i {
+
+            position: absolute;
+
+            right: 15px;
+
+            bottom: 15px;
+
+            color: #999;
+
+            cursor: pointer;
+
+        }
+
+        .options {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+
+            font-size: 14px;
+
+        }
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+        .remember input {
+
+            margin-right: 8px;
+
+        }
+
+        .forgot-password {
+
+            color: var(--accent-color);
+
+            text-decoration: none;
+
+            font-weight: 500;
+
+        }
+
+        .forgot-password:hover {
+
+            text-decoration: underline;
+
+        }
+
+        .submit-button {
+
+            background-color: var(--primary-color);
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            padding: 14px;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            width: 100%;
+
+        }
+
+        .submit-button:hover {
+
+            background-color: var(--button-hover);
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 5px 15px rgba(139, 90, 43, 0.3);
+
+        }
+
+        .submit-button:active {
+
+            transform: translateY(0);
+
+        }
+
+        .toggle-link {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            font-size: 14px;
+
+            color: var(--text-color);
+
+        }
+
+        .toggle-link a {
+
+            color: var(--accent-color);
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+        }
+
+        .toggle-link a:hover {
+
+            text-decoration: underline;
+
+        }
+
+        /* Caractère de l'ours */
+
+        .bear-container {
+
+            position: relative;
+
+            width: 220px;
+
+            height: 220px;
+
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        }
+
+        /* Visage d'ours */
+
+        .bear-face {
+
+            position: absolute;
+
+            background-color: var(--background-color);
+
+            height: 140px;
+
+            width: 160px;
+
+            border-radius: 70% 70% 60% 60%;
+
+            top: 20px;
+
+            left: 30px;
+
+            transition: all 0.4s ease;
+
+        }
+
+        /* Oreilles */
+
+        .ear-l,
+        .ear-r {
+
+            background-color: var(--secondary-color);
+
+            height: 50px;
+
+            width: 50px;
+
+            border-radius: 50%;
+
+            position: absolute;
+
+            top: -5px;
+
+            transition: all 0.4s ease;
+
+        }
+
+        .ear-l {
+
+            left: 20px;
+
+        }
+
+        .ear-r {
+
+            right: 20px;
+
+        }
+
+        .ear-l:before,
+        .ear-r:before {
+
+            position: absolute;
+            content: counter(name);
+
+            height: 30px;
+
+            width: 30px;
+
+            background-color: var(--secondary-color);
+
+            border-radius: 50%;
+
+            top: 10px;
+
+        }
+
+        .ear-l:before {
+
+            left: 10px;
+
+        }
+
+        .ear-r:before {
+
+            right: 10px;
+
+        }
+
+        /* Yeux */
+
+        .eye-l,
+        .eye-r {
+
+            background-color: white;
+
+            height: 26px;
+
+            width: 24px;
+
+            border-radius: 50%;
+
+            position: absolute;
+
+            top: 40px;
+
+            transition: all 0.4s ease;
+
+        }
+
+        .eye-l {
+
+            left: 40px;
+
+        }
+
+        .eye-r {
+
+            right: 40px;
+
+        }
+
+        .eyeball-l,
+        .eyeball-r {
+
+            background-color: rgb(70, 11, 230);
+
+            height: 12px;
+
+            width: 12px;
+
+            border-radius: 50%;
+
+            position: absolute;
+
+            top: 6px;
+
+            transition: all 0.2s ease;
+
+        }
+
+        .eyeball-l {
+
+            left: 6px;
+
+        }
+
+        .eyeball-r {
+
+            right: 6px;
+
+        }
+
+        /* Rougir */
+
+        .blush-l,
+        .blush-r {
+
+            background-color: rgba(207, 68, 33, 0.7);
+
+            height: 15px;
+
+            width: 15px;
+
+            border-radius: 50%;
+
+            position: absolute;
+
+            top: 65px;
+
+        }
+
+        .blush-l {
+
+            left: 25px;
+
+        }
+
+        .blush-r {
+
+            right: 25px;
+
+        }
+
+        /* Museau */
+
+        .snout {
+
+            position: absolute;
+
+            background-color: var(--secondary-color);
+
+            height: 55px;
+
+            width: 70px;
+
+            border-radius: 50%;
+
+            top: 60px;
+
+            left: 45px;
+
+        }
+
+        /* Nez */
+
+        .nose {
+
+            background-color: black;
+
+            height: 14px;
+
+            width: 16px;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            top: 15px;
+
+            left: 27px;
+
+        }
+
+        /*Bouche*/
+
+        .mouth {
+
+            height: 10px;
+
+            width: 16px;
+
+            border-bottom: 3px solid black;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            top: 20px;
+
+            left: 27px;
+
+            transition: all 0.4s ease;
+
+        }
+
+        /* Message de bienvenue */
+
+        .welcome-text {
+
+            position: absolute;
+
+            width: 100%;
+
+            text-align: center;
+
+            bottom: 40px;
+
+            color: rgb(7, 5, 5);
+
+            font-size: 24px;
+
+            font-weight: 700;
+
+            opacity: 0.9;
+
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+            transition: all 0.6s ease;
+
+        }
+
+        /* Changement de formulaire */
+
+        .form-container {
+
+            width: 100%;
+
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        }
+
+        .login-form,
+        .register-form {
+
+            transition: opacity 0.3s ease;
+
+        }
+
+        .hidden {
+
+            display: none;
+
+            opacity: 0;
+
+        }
+
+        /* Conception réactive */
+
+        @media (max-width: 768px) {
+
+            .login-container {
+
+                flex-direction: column;
+
+                height: auto;
+
+                min-height: 90vh;
+
+            }
+
+
+
+            .bear-side {
+
+                height: 200px;
+
+            }
+
+
+
+            .bear-container {
+
+                transform: scale(0.8);
+
+            }
+
+
+
+            .form-side {
+
+                padding: 30px 20px;
+
+            }
+
+
+
+            .login-title {
+
+                margin-bottom: 20px;
+
+                font-size: 24px;
+
+            }
+
+        }
+
+        /* Animation */
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+
+        }
+
+
+
+        .bear-container {
+
+            animation: float 3s ease-in-out infinite;
+
+        }
+
+        @keyframes pulse {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+
+
+        .submit-button:hover {
+
+            animation: pulse 1s infinite;
+
+        }
+
+        /* Indicateur de force du mot de passe */
+
+        .password-strength {
+
+            height: 5px;
+
+            margin-top: 8px;
+
+            border-radius: 3px;
+
+            transition: all 0.3s ease;
+
+            background-color: #ddd;
+
+        }
+
+        .strength-weak {
+
+            background-color: #ff4d4d;
+
+            width: 30%;
+
+        }
+
+        .strength-medium {
+
+            background-color: #ffa700;
+
+            width: 60%;
+
+        }
+
+        .strength-strong {
+
+            background-color: #2ecc71;
+
+            width: 100%;
+
+        }
+
+        .password-text {
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+            color: #666;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="bear-side">
+
+            <div class="bear-container">
+
+                <div class="bear-face">
+
+                    <div class="ear-l"></div>
+
+                    <div class="ear-r"></div>
+
+                    <div class="eye-l">
+
+                        <div class="eyeball-l"></div>
+
+                    </div>
+
+                    <div class="eye-r">
+
+                        <div class="eyeball-r"></div>
+
+                    </div>
+
+                    <div class="blush-l"></div>
+
+                    <div class="blush-r"></div>
+
+                    <div class="snout">
+
+                        <div class="nose"></div>
+
+                        <div class="mouth"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="welcome-text" id="welcome-message">Connectez-vous à votre compte</div>
+
+        </div>
+
+        <div class="form-side">
+
+            <div class="form-container">
+
+                <!-- Formulaire de connexion -->
+
+                <div class="login-form" id="login-form-container">
+
+                    <h1 class="login-title">Connexion</h1>
+
+                    <form id="login-form">
+
+                        <div class="input-group">
+
+                            <label for="login-username">Nom d'utilisateur</label>
+
+                            <input type="text" id="login-username" placeholder="nom d'utilisateur" />
+
+                            <i class="fas fa-user"></i>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label for="login-password">mot de passe</label>
+
+                            <input type="password" id="login-password" placeholder="mot de passe" />
+
+                            <i class="fas fa-eye-slash toggle-password"></i>
+
+                        </div>
+
+                        <div class="options">
+
+                            <div class="remember">
+
+                                <input type="checkbox" id="remember" />
+
+                                <label for="remember">souviens-toi de moi</label>
+
+                            </div>
+
+                            <a href="#" class="forgot-password">J'ai oublié mon mot de passe</a>
+
+                        </div>
+
+                        <button type="submit" class="submit-button">Se connecter</button>
+
+                    </form>
+
+                    <div class="toggle-link">Vous n'avez pas de compte ?<a id="show-register">Inscrivez-vous maintenant</a>
+
+                    </div>
+
+                </div>
+
+                <!-- Formulaire d'inscription -->
+
+                <div class="register-form hidden" id="register-form-container">
+
+                    <h1 class="login-title">Créer un nouveau compte</h1>
+
+                    <form id="register-form">
+
+                        <div class="input-group">
+
+                            <label for="register-fullname">Nom Prénom</label>
+
+                            <input type="text" id="register-fullname" placeholder="Entrez votre nom et prénom" />
+
+                            <i class="fas fa-user"></i>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label for="register-email">Adresse email</label>
+
+                            <input type="email" id="register-email" placeholder="Entrez votre adresse e-mail" />
+
+                            <i class="fas fa-envelope"></i>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label for="register-username">Nom d'utilisateur</label>
+
+                            <input type="text" id="register-username" placeholder="Créez votre nom d'utilisateur" />
+
+                            <i class="fas fa-user-tag"></i>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label for="register-password">Mot de passe</label>
+
+                            <input type="password" id="register-password" placeholder="Créez un mot de passe fort" />
+
+                            <i class="fas fa-eye-slash toggle-password"></i>
+
+                            <div class="password-strength" id="password-strength"></div>
+
+                            <div class="password-text" id="password-text">Force du mot de passe : pas encore saisi</div>
+
+                        </div>
+
+                        <button type="submit" class="submit-button">Créer un compte</button>
+
+                    </form>
+
+                    <div class="toggle-link">Vous avez déjà un compte ? <a id="show-login">Se connecter</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Opérations de changement de formulaire
+
+            const loginForm = document.getElementById("login-form-container");
+
+            const registerForm = document.getElementById("register-form-container");
+
+            const showRegister = document.getElementById("show-register");
+
+            const showLogin = document.getElementById("show-login");
+
+            const welcomeMessage = document.getElementById("welcome-message");
+
+            const bearFace = document.querySelector(".bear-face");
+
+
+
+            // Aller au formulaire d'inscription
+
+            showRegister.addEventListener("click", function () {
+
+                loginForm.classList.add("hidden");
+
+                registerForm.classList.remove("hidden");
+
+                welcomeMessage.textContent = "Rejoignez-nous !";
+
+
+
+                // Changez le style de votre visage d'ours
+
+                bearFace.style.transform = "translateY(-5px) rotate(5deg)";
+
+                setTimeout(() => {
+
+                    bearFace.style.transform = "translateY(0) rotate(0deg)";
+
+                }, 600);
+
+            });
+
+
+
+            // Passer au formulaire de connexion
+
+            showLogin.addEventListener("click", function () {
+
+                registerForm.classList.add("hidden");
+
+                loginForm.classList.remove("hidden");
+
+                welcomeMessage.textContent = "Accueillir!";
+
+
+
+                // Changez le style de votre visage d'ours
+
+                bearFace.style.transform = "translateY(-5px) rotate(-5deg)";
+
+                setTimeout(() => {
+
+                    bearFace.style.transform = "translateY(0) rotate(0deg)";
+
+                }, 600);
+
+            });
+
+
+
+            // Suivi des mouvements oculaires
+
+            const container = document.querySelector(".login-container");
+
+            const eyeballL = document.querySelector(".eyeball-l");
+
+            const eyeballR = document.querySelector(".eyeball-r");
+
+
+
+            document.addEventListener("mousemove", (e) => {
+
+                const x = e.clientX;
+
+                const y = e.clientY;
+
+
+
+                const rect = container.getBoundingClientRect();
+
+                const bearCenterX = rect.left + rect.width / 3;
+
+                const bearCenterY = rect.top + rect.height / 2;
+
+
+
+                const maxMove = 4;
+
+
+
+                // Calcul : distance entre la face de la souris et celle de l'ours
+
+                const deltaX = x - bearCenterX;
+
+                const deltaY = y - bearCenterY;
+
+
+
+                // Normaliser la distance et appliquer une limite de mouvement maximale
+
+                const moveX = Math.max(-1, Math.min(1, deltaX / 100)) * maxMove;
+
+                const moveY = Math.max(-1, Math.min(1, deltaY / 100)) * maxMove;
+
+
+
+                eyeballL.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+                eyeballR.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+            });
+
+
+
+            // Contrôle de la visibilité des mots de passe
+
+            const togglePasswordButtons = document.querySelectorAll(".toggle-password");
+
+
+
+            togglePasswordButtons.forEach(button => {
+
+                button.addEventListener("click", function () {
+
+                    const passwordField = this.previousElementSibling;
+
+
+
+                    if (passwordField.type === "password") {
+
+                        passwordField.type = "text";
+
+                        this.classList.remove("fa-eye-slash");
+
+                        this.classList.add("fa-eye");
+
+                    } else {
+
+                        passwordField.type = "password";
+
+                        this.classList.remove("fa-eye");
+
+                        this.classList.add("fa-eye-slash");
+
+                    }
+
+                });
+
+            });
+
+
+
+            // Vérification de la force du mot de passe
+
+            const registerPassword = document.getElementById("register-password");
+
+            const passwordStrength = document.getElementById("password-strength");
+
+            const passwordText = document.getElementById("password-text");
+
+
+
+            registerPassword.addEventListener("input", function () {
+
+                const password = this.value;
+
+                let strength = 0;
+
+
+
+                if (password.length > 6) strength += 1;
+
+                if (password.match(/[A-Z]/)) strength += 1;
+
+                if (password.match(/[0-9]/)) strength += 1;
+
+                if (password.match(/[^A-Za-z0-9]/)) strength += 1;
+
+
+
+                passwordStrength.className = "password-strength";
+
+
+
+                if (password.length === 0) {
+
+                    passwordStrength.style.width = "0";
+
+                    passwordText.textContent = "Force du mot de passe : pas encore saisi";
+
+                } else if (strength < 2) {
+
+                    passwordStrength.classList.add("strength-weak");
+
+                    passwordText.textContent = "Force du mot de passe : Faible";
+
+                } else if (strength < 4) {
+
+                    passwordStrength.classList.add("strength-medium");
+
+                    passwordText.textContent = "Force du mot de passe : moyenne";
+
+                } else {
+
+                    passwordStrength.classList.add("strength-strong");
+
+                    passwordText.textContent = "Force du mot de passe : Forte";
+
+                }
+
+            });
+
+
+
+            // Événement de soumission du formulaire de connexion
+
+            const loginSubmitForm = document.getElementById("login-form");
+
+            loginSubmitForm.addEventListener("submit", (e) => {
+
+                e.preventDefault();
+
+
+
+                const username = document.getElementById("login-username").value;
+
+                const password = document.getElementById("login-password").value;
+
+
+
+                if (username && password) {
+
+                    //Animation d'entrée
+
+                    const bearFace = document.querySelector(".bear-face");
+
+                    const mouth = document.querySelector(".mouth");
+
+
+
+                    bearFace.style.transition = "transform 0.5s ease";
+
+                    bearFace.style.transform = "translateY(10px)";
+
+
+
+                    mouth.style.transition = "all 0.5s ease";
+
+                    mouth.style.height = "15px";
+
+                    mouth.style.borderRadius = "50% 50% 0 0";
+
+                    mouth.style.borderBottom = "none";
+
+                    mouth.style.borderTop = "3px solid black";
+
+
+
+                    // Message de connexion réussie
+
+                    setTimeout(() => {
+
+                        alert("Connexion réussie ! Vous êtes dirigé...");
+
+                        bearFace.style.transform = "translateY(0)";
+
+
+
+                        setTimeout(() => {
+
+                            mouth.style.height = "10px";
+
+                            mouth.style.borderRadius = "50%";
+
+                            mouth.style.borderTop = "none";
+
+                            mouth.style.borderBottom = "3px solid black";
+
+                        }, 500);
+
+                    }, 800);
+
+                } else {
+
+                    // Animation d'erreur
+
+                    const bearFace = document.querySelector(".bear-face");
+
+
+
+                    bearFace.style.transition = "transform 0.1s ease";
+
+                    bearFace.style.transform = "translateX(-5px)";
+
+
+
+                    setTimeout(() => {
+
+                        bearFace.style.transform = "translateX(5px)";
+
+                        setTimeout(() => {
+
+                            bearFace.style.transform = "translateX(-5px)";
+
+                            setTimeout(() => {
+
+                                bearFace.style.transform = "translateX(5px)";
+
+                                setTimeout(() => {
+
+                                    bearFace.style.transform = "translateX(0)";
+
+                                }, 100);
+
+                            }, 100);
+
+                        }, 100);
+
+                    }, 100);
+
+
+
+                    alert("Veuillez remplir les champs nom d'utilisateur et mot de passe !");
+
+                }
+
+            });
+
+
+
+            // Événement de soumission du formulaire d’inscription
+
+            const registerSubmitForm = document.getElementById("register-form");
+
+            registerSubmitForm.addEventListener("submit", (e) => {
+
+                e.preventDefault();
+
+
+
+                const fullname = document.getElementById("register-fullname").value;
+
+                const email = document.getElementById("register-email").value;
+
+                const username = document.getElementById("register-username").value;
+
+                const password = document.getElementById("register-password").value;
+
+
+
+                if (fullname && email && username && password) {
+
+                    // Animation d'inscription réussie
+
+                    const bearFace = document.querySelector(".bear-face");
+
+                    const mouth = document.querySelector(".mouth");
+
+
+
+                    // expression de surprise
+
+                    mouth.style.height = "15px";
+
+                    mouth.style.width = "18px";
+
+                    mouth.style.borderBottom = "3px solid black";
+
+
+
+                    bearFace.style.transform = "translateY(-8px)";
+
+
+
+                    setTimeout(() => {
+
+                        // émoticône heureuse
+
+                        mouth.style.height = "15px";
+
+                        mouth.style.borderRadius = "50% 50% 0 0";
+
+                        mouth.style.borderBottom = "none";
+
+                        mouth.style.borderTop = "3px solid black";
+
+
+
+                        setTimeout(() => {
+
+                            alert("Votre inscription a été créée avec succès ! Vous êtes dirigé vers la page de connexion...");
+
+
+
+                            // Retour au formulaire de connexion
+
+                            registerForm.classList.add("hidden");
+
+                            loginForm.classList.remove("hidden");
+
+                            welcomeMessage.textContent = "Accueillir!";
+
+
+
+                            // Réinitialiser les émoticônes
+
+                            setTimeout(() => {
+
+                                mouth.style.height = "10px";
+
+                                mouth.style.width = "16px";
+
+                                mouth.style.borderRadius = "50%";
+
+                                mouth.style.borderTop = "none";
+
+                                mouth.style.borderBottom = "3px solid black";
+
+                                bearFace.style.transform = "translateY(0)";
+
+                            }, 500);
+
+                        }, 800);
+
+                    }, 300);
+
+                } else {
+
+                    // Animation d'erreur
+
+                    const bearFace = document.querySelector(".bear-face");
+
+
+
+                    bearFace.style.transition = "transform 0.1s ease";
+
+                    bearFace.style.transform = "translateX(-5px)";
+
+
+
+                    setTimeout(() => {
+
+                        bearFace.style.transform = "translateX(5px)";
+
+                        setTimeout(() => {
+
+                            bearFace.style.transform = "translateX(-5px)";
+
+                            setTimeout(() => {
+
+                                bearFace.style.transform = "translateX(5px)";
+
+                                setTimeout(() => {
+
+                                    bearFace.style.transform = "translateX(0)";
+
+                                }, 100);
+
+                            }, 100);
+
+                        }, 100);
+
+                    }, 100);
+
+
+
+                    alert("Veuillez remplir tous les champs !");
+
+                }
+
+            });
+
+
+
+            // Animation de focus d'entrée 
+
+            const inputs = document.querySelectorAll("input");
+
+
+
+            inputs.forEach(input => {
+
+                input.addEventListener("focus", () => {
+
+                    const bearFace = document.querySelector(".bear-face");
+
+                    bearFace.style.transition = "transform 0.3s ease";
+
+                    bearFace.style.transform = "translateY(-5px) scale(1.03)";
+
+                });
+
+
+
+                input.addEventListener("blur", () => {
+
+                    const bearFace = document.querySelector(".bear-face");
+
+                    bearFace.style.transition = "transform 0.3s ease";
+
+                    bearFace.style.transform = "translateY(0) scale(1)";
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
